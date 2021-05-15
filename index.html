@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +46,7 @@ body, html {
 
 .bgimg-5 {
     background-image: url("tk.jpg");
-    min-height: 600px;
+    min-height: 700px;
     ;
 }
 .caption {
@@ -83,7 +82,7 @@ h3 {
 }
 </style>
 </head>
-<body>
+<body onload="initialize()" onkeyup="if(event.keyCode == 32) { pushbutton(); }">
 
     
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -125,6 +124,8 @@ h3 {
 <br>     <b> TO SEE MY CUBING VIDEOS CLICK THE IMAGE LINK BUTTON :
        <a href="https://youtu.be/jhjdvvTEeXg">
             <img border="0" alt="SP" src="yt.png" width="150" height="100"></a>
+
+            <B><I>SEE YOUR CUBE SOLVING TIME IN THE TIMER BELOW </I></B>
 </p>
   </div>
 </div>
@@ -161,8 +162,115 @@ h3 {
         </div>
       </div>
 
+      <div class="col-md-8 col-sm-10 pr-0">
+        <h1>Cube Timer</h1>
+        <table class="w-100" cellpadding="10" cellspacing="25" align="center" style="border-bottom: 1px solid #ccc;">
+        <tr>
+        <td valign="top" align="center">
+        <div id="scramble">Scramble:&nbsp;&nbsp;F' &nbsp;R &nbsp;D &nbsp;B' &nbsp;D' &nbsp;B' &nbsp;U2 &nbsp;B2 &nbsp;R' &nbsp;L' &nbsp;D &nbsp;F &nbsp;D' &nbsp;F' &nbsp;L2 &nbsp;F &nbsp;D &nbsp;F' &nbsp;D2 &nbsp;L2 &nbsp;R' &nbsp;F &nbsp;R2 &nbsp;L2 &nbsp;D'</div>
+        <div id="elapsed_time" style="font-size: 90px; font-style: italic; font-weight: bold; color: #f70000;" onclick="if(isMobile) { pushbutton(); }">00:00:00</div>
+        <div id="short_info">
+        <h2> practice until you surpass your previous record.
+        <br />
+        <span class="show-desktop-inline">Hit your
+        <strong>Spacebar</strong></span>
+        <span class="show-mobile-inline">Touch <strong>Red Timer</strong> </span>
+        to start/stop.</h2>
+        
+        <form name="settings_form" style="margin: 10px 0; font-size: 11px;">
+        <div id="settings_panel">
+        Inspection Time:
+        <select name="insp_time" style="font-size: 11px;" onchange="save_settings();">
+        <option value="0">no inspection</option>
+        <option value="3">3 seconds</option>
+        <option value="5">5 seconds</option>
+        <option value="10">10 seconds</option>
+        <option value="15">15 seconds</option>
+        </select>
+        <input type="checkbox" id="insp_sound" class="d-none" name="insp_sound" onclick="save_settings();">
+        </div>
+        </form>
+        </div>
+        <script language="javascript">
+            //$('#full_info').hide();
+
+        </script>
+<div id="time_log">
+<form name="time_log_form">
+<div id="puzzle_selector">
+<h5><b> SP THE CUBER</b></h5>
+</div>
+<div style="margin: 5px 0; font-size: 10px;">
+    <a class="clear_time" href="javascript:clear_times()">clear times</a>
+</div>
+<div class="w-100">
+<div id="times" class="float-left homepage-width-attempt-list" >
+<div style="height: 192px; margin-top: 24px; overflow: auto; padding: 5px; border: 1px solid #89c; background: #fff;">&nbsp;</div>
+</div>
+<div id="avg" style="margin-top: 10px; ">&nbsp;</div>
+<div id="stats" class="w-70 float-left homepage-width-time-chart" style="min-height: 145px;">
+<table border="0" cellspacing="5" cellpadding="0" width="100%">
+<tr>
+<td><label>Average:</label></td>
+<td id="stat_avg" class="text-danger">--:--.--</td>
+<td><label>Best:</label></td>
+<td id="stat_best" class="text-danger">--:--.--</td>
+</tr>
+<tr>
+<td><label>Avg. 5:</label></td>
+<td id="stat_avg5">--:--.--</td>
+<td><label>Avg. 10:</label></td>
+<td id="stat_avg10">--:--.--</td>
+</tr>
+<tr>
+<td><label>Avg. 20:</label></td>
+<td id="stat_avg20">--:--.--</td>
+<td><label>Avg. 30:</label></td>
+<td id="stat_avg30">--:--.--</td>
+</tr>
+<tr>
+<td><label>Avg. 40:</label></td>
+<td id="stat_avg40">--:--.--</td>
+<td><label>Avg. 50:</label></td>
+<td id="stat_avg50">--:--.--</td>
+</tr>
+ <tr>
+<td><label>Avg. 75:</label></td>
+<td id="stat_avg75">--:--.--</td>
+<td><label>Avg. 100:</label></td>
+<td id="stat_avg100">--:--.--</td>
+</tr>
+</table>
+</div>
+</div>
+</form>
+</div>
+</td>
+</tr>
+</table>
+<script>
+    window.addEventListener('keydown', function(e) {
+        if (e.keyCode == 32 && e.target == document.body) {
+            e.preventDefault();
+        }
+    });
+
+</script>
+
+<script language="javascript" src="kbc.js"></script>
+<script language="javascript" src="custom_v1.4.js"></script>
+      
      
   </div>
 </div>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
